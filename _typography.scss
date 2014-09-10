@@ -1,0 +1,42 @@
+// =========================================================
+// Font Size
+// =========================================================
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+/*
+  p {
+    @include font-size(14px)
+  }
+*/
+// =========================================================
+// Line Height
+// =========================================================
+@mixin line-height($heightValue: 12 ){
+  line-height: $heightValue + px; //fallback for old browsers
+  line-height: (0.125 * $heightValue) + rem;
+}
+/*
+  body {
+    @include line-height (16);
+  }
+*/
+// =========================================================
+// Text Overflow Ellipsis
+// =========================================================
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/*
+  .text-truncate {
+    @include text-truncate;
+  }
+*/
