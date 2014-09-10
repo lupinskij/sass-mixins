@@ -1,0 +1,60 @@
+// =========================================================
+// Box Sizing
+// =========================================================
+@mixin box-sizing($box-model) {
+  -webkit-box-sizing: $box-model; // Safari <= 5
+     -moz-box-sizing: $box-model; // Firefox <= 19
+          box-sizing: $box-model;
+}
+/*
+  *,
+  *:after,
+  *:before {
+    @include box-sizing(border-box);
+  }
+*/
+// =========================================================
+// Clearfix
+// =========================================================
+%clearfix {
+  *zoom: 1;
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+/*
+  .container-with-floated-children {
+    @extend %clearfix;
+  }
+*/
+// =========================================================
+// Cross browser opacity
+// =========================================================
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+/*
+  .faded-text {
+    @include opacity(0.8);
+  }
+*/
+// =========================================================
+// Center-align a block level element
+// =========================================================
+@mixin center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+/*
+  .footer-wrap {
+    width: 450px;
+    @include center-block;
+  }
+*/
